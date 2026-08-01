@@ -1,81 +1,133 @@
-import { FaGraduationCap } from "react-icons/fa";
+import { FaGraduationCap, FaSchool } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay, ease: "easeOut" },
+  }),
+};
 
 function Education() {
   return (
-    <section id="education" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
+    <section id="education" className="py-24 bg-[#0a0a0f]">
+      <div className="max-w-5xl mx-auto px-8">
 
-        <h2 className="text-5xl font-bold text-center text-slate-800">
-          Education
-        </h2>
+        {/* Heading */}
 
-        <p className="text-center text-slate-500 mt-4 mb-14">
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={0}
+          className="text-3xl md:text-4xl font-bold text-center text-white"
+        >
+          <span className="text-violet-400">Education</span>
+        </motion.h2>
+
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={0.1}
+          className="text-center text-slate-400 mt-3"
+        >
           My Academic Journey
-        </p>
+        </motion.p>
 
-        <div className="max-w-4xl mx-auto">
+        {/* Timeline */}
 
-          <div className="bg-slate-50 rounded-3xl shadow-lg p-10 hover:shadow-2xl transition duration-300">
+        <div className="mt-14 space-y-5">
 
-            <div className="flex items-center gap-5">
+          {/* B.E Degree */}
 
-              <div className="w-16 h-16 rounded-full bg-blue-600 text-white flex items-center justify-center text-3xl">
-                <FaGraduationCap />
-              </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0.2}
+            whileHover={{ scale: 1.01, y: -3 }}
+            className="flex items-start gap-4 bg-white/5 border border-violet-500/20 rounded-xl p-5 hover:border-violet-500/40 transition-colors"
+          >
 
-              <div>
-                <h3 className="text-2xl font-bold text-slate-800">
+            <div className="w-11 h-11 shrink-0 rounded-lg bg-violet-500/10 flex items-center justify-center">
+              <FaGraduationCap className="text-xl text-violet-400" />
+            </div>
+
+            <div className="flex-1">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h4 className="text-base font-bold text-white">
                   B.E Computer Science and Engineering
-                </h3>
-
-                <p className="text-lg text-blue-600 font-semibold mt-1">
-                  Mount Zion College of Engineering and Technology
-                </p>
-
-                <p className="text-slate-500 mt-2">
+                </h4>
+                <span className="text-xs font-semibold text-violet-300 bg-violet-500/10 px-2.5 py-1 rounded-full">
                   2023 – 2027
-                </p>
+                </span>
               </div>
 
+              <p className="text-sm text-slate-400 mt-1">
+                Mount Zion College of Engineering and Technology
+              </p>
+
+              <div className="flex flex-wrap gap-x-6 gap-y-1 mt-3 text-sm">
+                <p className="text-slate-400">
+                  <span className="text-slate-500">Degree:</span>{" "}
+                  <span className="text-slate-300">Bachelor of Engineering</span>
+                </p>
+                <p className="text-slate-400">
+                  <span className="text-slate-500">Branch:</span>{" "}
+                  <span className="text-slate-300">Computer Science & Engineering</span>
+                </p>
+                <p className="text-slate-400">
+                  <span className="text-slate-500">Graduation:</span>{" "}
+                  <span className="text-slate-300">Expected – 2027</span>
+                </p>
+              </div>
             </div>
 
-            <hr className="my-8" />
+          </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+          {/* 12th School */}
 
-              <div className="bg-white rounded-xl p-6 shadow">
-                <h4 className="font-bold text-blue-600">
-                  Degree
-                </h4>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0.3}
+            whileHover={{ scale: 1.01, y: -3 }}
+            className="flex items-start gap-4 bg-white/5 border border-violet-500/20 rounded-xl p-5 hover:border-violet-500/40 transition-colors"
+          >
 
-                <p className="mt-2 text-slate-600">
-                  Bachelor of Engineering
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow">
-                <h4 className="font-bold text-blue-600">
-                  Branch
-                </h4>
-
-                <p className="mt-2 text-slate-600">
-                  Computer Science & Engineering
-                </p>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow">
-                <h4 className="font-bold text-blue-600">
-                  Graduation
-                </h4>
-
-                <p className="mt-2 text-slate-600">
-                  Expected - 2027
-                </p>
-              </div>
-
+            <div className="w-11 h-11 shrink-0 rounded-lg bg-violet-500/10 flex items-center justify-center">
+              <FaSchool className="text-xl text-violet-400" />
             </div>
 
-          </div>
+            <div className="flex-1">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h4 className="text-base font-bold text-white">
+                  Higher Secondary (12th)
+                </h4>
+                <span className="text-xs font-semibold text-violet-300 bg-violet-500/10 px-2.5 py-1 rounded-full">
+                  2023
+                </span>
+              </div>
+
+              <p className="text-sm text-slate-400 mt-1">
+                Ramanathan Chettiar Higher Secondary School
+              </p>
+
+              <p className="text-sm text-slate-400 mt-3">
+                <span className="text-slate-500">Status:</span>{" "}
+                <span className="text-slate-300">Passed Out</span>
+              </p>
+            </div>
+
+          </motion.div>
 
         </div>
 

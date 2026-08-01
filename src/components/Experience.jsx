@@ -1,4 +1,14 @@
 import { FaBriefcase } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay, ease: "easeOut" },
+  }),
+};
 
 function Experience() {
   const experiences = [
@@ -29,52 +39,72 @@ function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-16 bg-slate-100">
+    <section id="experience" className="py-16 bg-[#0a0a0f]">
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-3xl font-bold text-center text-slate-800">
-          Experience
-        </h2>
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={0}
+          className="text-3xl font-bold text-center text-white"
+        >
+          <span className="text-violet-400">Experience</span>
+        </motion.h2>
 
-        <p className="text-center text-slate-500 mt-2 mb-10">
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={0.1}
+          className="text-center text-slate-400 mt-2 mb-10"
+        >
           Internship Experience
-        </p>
+        </motion.p>
 
         <div className="grid md:grid-cols-3 gap-5">
 
           {experiences.map((exp, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-1 transition duration-300 p-5"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0.2 + index * 0.15}
+              whileHover={{ scale: 1.02, y: -4 }}
+              className="bg-white/5 border border-violet-500/20 rounded-2xl hover:border-violet-500/40 transition-colors duration-300 p-5"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white text-lg">
+                <div className="w-10 h-10 bg-violet-600 rounded-full flex items-center justify-center text-white text-lg">
                   <FaBriefcase />
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold text-slate-800">
+                  <h3 className="text-lg font-bold text-white">
                     {exp.role}
                   </h3>
 
-                  <p className="text-blue-600 font-semibold text-sm">
+                  <p className="text-violet-400 font-semibold text-sm">
                     {exp.company}
                   </p>
                 </div>
               </div>
 
-              <p className="text-slate-500 text-sm">
+              <p className="text-slate-400 text-sm">
                 📅 {exp.duration}
               </p>
 
-              <p className="text-slate-500 mt-1 text-sm">
+              <p className="text-slate-400 mt-1 text-sm">
                 📍 {exp.location}
               </p>
 
-              <p className="text-slate-600 mt-4 text-sm leading-6">
+              <p className="text-slate-400 mt-4 text-sm leading-6">
                 {exp.description}
               </p>
-            </div>
+            </motion.div>
           ))}
 
         </div>

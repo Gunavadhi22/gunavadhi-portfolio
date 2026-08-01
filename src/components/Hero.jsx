@@ -1,130 +1,200 @@
 import { TypeAnimation } from "react-type-animation";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay, ease: "easeOut" },
+  }),
+};
 
 function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center bg-gradient-to-br from-white via-sky-50 to-blue-100"
+      className="min-h-screen flex items-center bg-[#0a0a0f] pt-20"
     >
-      <div className="max-w-7xl mx-auto px-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 w-full">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
 
-          {/* Left Side */}
-          <div>
+          {/* LEFT */}
 
-            <p className="text-blue-600 text-xl font-semibold">
-              👋 Hello, I'm
-            </p>
+          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
 
-            <h1 className="mt-4 text-6xl md:text-7xl font-black text-slate-900">
-              Gunavadhi
-            </h1>
+            {/* Welcome Badge */}
 
-            <h1 className="text-6xl md:text-7xl font-black bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Thiyagarajan
-            </h1>
+            <motion.span
+              variants={fadeUp}
+              custom={0}
+              className="inline-block bg-violet-500/10 text-violet-300 border border-violet-500/30 px-4 py-1.5 rounded-full text-sm font-semibold"
+            >
+              👋 Welcome to my Portfolio
+            </motion.span>
 
-            <div className="mt-6">
+            {/* Name */}
+
+            <motion.h1
+              variants={fadeUp}
+              custom={0.15}
+              whileHover={{ scale: 1.01 }}
+              className="mt-5 text-5xl md:text-6xl font-extrabold leading-tight tracking-tight"
+            >
+              <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+                Gunavadhi Thiyagarajan
+              </span>
+            </motion.h1>
+
+            {/* Type Animation */}
+
+            <motion.div variants={fadeUp} custom={0.3} className="mt-4">
               <TypeAnimation
                 sequence={[
-                  "Data Analyst",
-                  2000,
-                  "Python Developer",
-                  2000,
-                  "SQL Enthusiast",
-                  2000,
-                  "Power BI Developer",
-                  2000,
-                  "React Developer",
-                  2000,
+                  "📊 Data Analyst",
+                  1800,
+                  "🐍 Python Developer",
+                  1800,
+                  "📈 Power BI Developer",
+                  1800,
+                  "⚛ React Developer",
+                  1800,
+                  "💾 SQL Enthusiast",
+                  1800,
                 ]}
                 wrapper="span"
-                speed={50}
+                speed={55}
                 repeat={Infinity}
-                className="text-3xl font-bold text-blue-600"
+                className="text-2xl md:text-3xl font-semibold text-violet-300"
               />
-            </div>
+            </motion.div>
 
-            <p className="mt-8 text-lg text-slate-600 leading-8 max-w-xl">
-              Passionate Computer Science Engineering student with hands-on
-              experience in Python, SQL, Power BI, React, Machine Learning and
-              Web Development. I enjoy building modern, responsive and scalable
-              applications that solve real-world problems.
-            </p>
+            {/* Description */}
+
+            <motion.p
+              variants={fadeUp}
+              custom={0.45}
+              className="mt-6 max-w-lg text-slate-400 text-base md:text-lg leading-7"
+            >
+              Passionate Computer Science Engineering student specializing in
+              Python, SQL, Power BI, React, Firebase and Data Analytics.
+              I enjoy building scalable web applications and solving
+              real-world business problems through technology.
+            </motion.p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-5 mt-10">
 
-              <a
+            <motion.div variants={fadeUp} custom={0.6} className="flex flex-wrap gap-4 mt-8">
+              <motion.a
+                whileHover={{ scale: 1.04, y: -3 }}
+                whileTap={{ scale: 0.96 }}
                 href="/Gunavadhi_Resume.pdf"
                 download
-                className="px-8 py-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
+                className="px-7 py-3.5 rounded-full bg-violet-600 text-white text-base font-semibold shadow-lg shadow-violet-900/40 hover:bg-violet-500 transition-all duration-300"
               >
                 Download Resume
-              </a>
+              </motion.a>
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.04, y: -3 }}
+                whileTap={{ scale: 0.96 }}
                 href="#projects"
-                className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition duration-300"
+                className="px-7 py-3.5 rounded-full border-2 border-violet-500 text-violet-300 text-base font-semibold flex items-center gap-2 hover:bg-violet-600 hover:text-white hover:border-violet-600 transition-all duration-300"
               >
                 View Projects
-              </a>
-
-            </div>
+                <FaArrowRight size={15} />
+              </motion.a>
+            </motion.div>
 
             {/* Social Icons */}
 
-            <div className="flex gap-6 mt-10">
-
-              <a
+            <motion.div variants={fadeUp} custom={0.75} className="flex gap-4 mt-8">
+              <motion.a
+                whileHover={{ scale: 1.15, y: -4 }}
                 href="https://github.com/Gunavadhi22"
                 target="_blank"
                 rel="noreferrer"
-                className="w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition"
+                className="w-11 h-11 rounded-full bg-white/5 border border-violet-500/30 flex items-center justify-center text-violet-300 hover:bg-violet-600 hover:text-white hover:border-violet-600 transition-all"
               >
-                <FaGithub size={24} />
-              </a>
+                <FaGithub size={19} />
+              </motion.a>
 
-              <a
-                href="https://www.linkedin.com/"
+              <motion.a
+                whileHover={{ scale: 1.15, y: -4 }}
+                href="https://www.linkedin.com/in/"
                 target="_blank"
                 rel="noreferrer"
-                className="w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition"
+                className="w-11 h-11 rounded-full bg-white/5 border border-violet-500/30 flex items-center justify-center text-violet-300 hover:bg-violet-600 hover:text-white hover:border-violet-600 transition-all"
               >
-                <FaLinkedin size={24} />
-              </a>
+                <FaLinkedin size={19} />
+              </motion.a>
 
-              <a
+              <motion.a
+                whileHover={{ scale: 1.15, y: -4 }}
                 href="mailto:gunavadhithiyagarajan@gmail.com"
-                className="w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-600 hover:text-white transition"
+                className="w-11 h-11 rounded-full bg-white/5 border border-violet-500/30 flex items-center justify-center text-violet-300 hover:bg-violet-600 hover:text-white hover:border-violet-600 transition-all"
               >
-                <FaEnvelope size={24} />
-              </a>
+                <FaEnvelope size={19} />
+              </motion.a>
+            </motion.div>
 
-            </div>
+          </motion.div>
 
-          </div>
+          {/* RIGHT */}
 
-          {/* Right Side */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex justify-center items-center"
+          >
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="relative"
+            >
 
-          <div className="flex justify-center">
+              {/* Glow */}
+              <div className="absolute inset-0 rounded-full bg-violet-600 blur-3xl opacity-30"></div>
 
-            <div className="relative">
+              {/* Main Circle */}
 
-              <div className="absolute inset-0 bg-blue-300 rounded-full blur-3xl opacity-50"></div>
+              <div className="relative w-[200px] h-[200px] md:w-[240px] md:h-[240px] rounded-full bg-gradient-to-br from-violet-600 via-purple-700 to-fuchsia-800 shadow-[0_15px_40px_rgba(139,92,246,0.35)] flex items-center justify-center overflow-hidden">
 
-              <div className="relative w-96 h-96 rounded-full bg-gradient-to-r from-blue-600 to-cyan-400 shadow-2xl flex items-center justify-center">
+                {/* Rotating Ring */}
 
-                <h1 className="text-8xl font-black text-white">
-                  GT
-                </h1>
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-2 rounded-full border border-dashed border-white/20"
+                />
+
+                {/* Inner Ring */}
+
+                <div className="absolute inset-5 rounded-full border border-white/10"></div>
+
+                {/* GT */}
+
+                <motion.div
+                  animate={{ scale: [1, 1.03, 1] }}
+                  transition={{ duration: 3, repeat: Infinity }}
+                  className="text-center"
+                >
+                  <h1 className="text-5xl md:text-6xl font-black tracking-wider text-white">
+                    GT
+                  </h1>
+
+                  <p className="mt-1 text-xs md:text-sm text-violet-200 font-medium">
+                    Data Analyst
+                  </p>
+                </motion.div>
 
               </div>
 
-            </div>
+            </motion.div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -1,22 +1,46 @@
 import { FaUserGraduate, FaLaptopCode, FaChartLine } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay, ease: "easeOut" },
+  }),
+};
 
 function About() {
   return (
     <section
       id="about"
-      className="py-24 bg-white"
+      className="py-24 bg-[#0a0a0f]"
     >
       <div className="max-w-7xl mx-auto px-8">
 
         {/* Heading */}
 
-        <h2 className="text-5xl font-bold text-center text-slate-800">
-          About Me
-        </h2>
+        <motion.h2
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={0}
+          className="text-3xl md:text-4xl font-bold text-center text-white"
+        >
+          About <span className="text-violet-400">Me</span>
+        </motion.h2>
 
-        <p className="text-center text-slate-500 mt-4">
+        <motion.p
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+          custom={0.1}
+          className="text-center text-slate-400 mt-3"
+        >
           Get to know me better
-        </p>
+        </motion.p>
 
         {/* About Card */}
 
@@ -24,13 +48,19 @@ function About() {
 
           {/* Left */}
 
-          <div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            custom={0.2}
+          >
 
-            <h3 className="text-3xl font-bold text-blue-600">
+            <h3 className="text-3xl font-bold text-violet-400">
               Who am I?
             </h3>
 
-            <p className="mt-6 text-slate-600 leading-8">
+            <p className="mt-6 text-slate-400 leading-8">
 
               I'm Gunavadhi Thiyagarajan, a Computer Science Engineering
               student passionate about Data Analytics, SQL, Python,
@@ -41,53 +71,86 @@ function About() {
 
             </p>
 
-          </div>
+          </motion.div>
 
           {/* Right */}
 
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-4">
 
-            <div className="bg-sky-50 rounded-2xl p-6 shadow">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0.3}
+              whileHover={{ scale: 1.02, y: -3 }}
+              className="flex items-center gap-4 bg-white/5 border border-violet-500/20 rounded-xl p-4 hover:border-violet-500/40 transition-colors"
+            >
 
-              <FaUserGraduate className="text-4xl text-blue-600" />
+              <div className="w-11 h-11 shrink-0 rounded-lg bg-violet-500/10 flex items-center justify-center">
+                <FaUserGraduate className="text-xl text-violet-400" />
+              </div>
 
-              <h4 className="text-xl font-bold mt-4">
-                Education
-              </h4>
+              <div>
+                <h4 className="text-base font-bold text-white">
+                  Education
+                </h4>
+                <p className="text-sm text-slate-400 mt-0.5">
+                  B.E Computer Science Engineering
+                </p>
+              </div>
 
-              <p className="text-slate-600 mt-2">
-                B.E Computer Science Engineering
-              </p>
+            </motion.div>
 
-            </div>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0.4}
+              whileHover={{ scale: 1.02, y: -3 }}
+              className="flex items-center gap-4 bg-white/5 border border-violet-500/20 rounded-xl p-4 hover:border-violet-500/40 transition-colors"
+            >
 
-            <div className="bg-sky-50 rounded-2xl p-6 shadow">
+              <div className="w-11 h-11 shrink-0 rounded-lg bg-violet-500/10 flex items-center justify-center">
+                <FaLaptopCode className="text-xl text-violet-400" />
+              </div>
 
-              <FaLaptopCode className="text-4xl text-blue-600" />
+              <div>
+                <h4 className="text-base font-bold text-white">
+                  Development
+                </h4>
+                <p className="text-sm text-slate-400 mt-0.5">
+                  React • Java • Python • SQL
+                </p>
+              </div>
 
-              <h4 className="text-xl font-bold mt-4">
-                Development
-              </h4>
+            </motion.div>
 
-              <p className="text-slate-600 mt-2">
-                React • Java • Python • SQL
-              </p>
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              custom={0.5}
+              whileHover={{ scale: 1.02, y: -3 }}
+              className="flex items-center gap-4 bg-white/5 border border-violet-500/20 rounded-xl p-4 hover:border-violet-500/40 transition-colors"
+            >
 
-            </div>
+              <div className="w-11 h-11 shrink-0 rounded-lg bg-violet-500/10 flex items-center justify-center">
+                <FaChartLine className="text-xl text-violet-400" />
+              </div>
 
-            <div className="bg-sky-50 rounded-2xl p-6 shadow">
+              <div>
+                <h4 className="text-base font-bold text-white">
+                  Data Analytics
+                </h4>
+                <p className="text-sm text-slate-400 mt-0.5">
+                  Power BI • Excel • Machine Learning
+                </p>
+              </div>
 
-              <FaChartLine className="text-4xl text-blue-600" />
-
-              <h4 className="text-xl font-bold mt-4">
-                Data Analytics
-              </h4>
-
-              <p className="text-slate-600 mt-2">
-                Power BI • Excel • Machine Learning
-              </p>
-
-            </div>
+            </motion.div>
 
           </div>
 
