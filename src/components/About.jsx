@@ -63,8 +63,7 @@ function About() {
             <p className="mt-6 text-slate-400 leading-8">
 
               I'm Gunavadhi Thiyagarajan, a Computer Science Engineering
-              student passionate about Data Analytics, SQL, Python,
-              Power BI, Machine Learning and Full Stack Development.
+              student passionate about Python, SQL, HTML, CSS, JavaScript, React(Learning), Power BI, Excel,Tableau, Data Visualization, Data Cleaning and Data Analytics.
 
               I enjoy solving real-world problems through technology
               and continuously learning modern tools.
@@ -121,7 +120,7 @@ function About() {
                   Development
                 </h4>
                 <p className="text-sm text-slate-400 mt-0.5">
-                  React • Java • Python • SQL
+                  HTML • CSS • JavaScript • React
                 </p>
               </div>
 
@@ -146,7 +145,7 @@ function About() {
                   Data Analytics
                 </h4>
                 <p className="text-sm text-slate-400 mt-0.5">
-                  Power BI • Excel • Machine Learning
+                  Power BI • Excel • Tableau
                 </p>
               </div>
 

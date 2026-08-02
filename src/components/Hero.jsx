@@ -54,11 +54,9 @@ function Hero() {
                 sequence={[
                   "📊 Data Analyst",
                   1800,
-                  "🐍 Python Developer",
+                  "web Developer",
                   1800,
                   "📈 Power BI Developer",
-                  1800,
-                  "⚛ React Developer",
                   1800,
                   "💾 SQL Enthusiast",
                   1800,
@@ -78,7 +76,7 @@ function Hero() {
               className="mt-6 max-w-lg text-slate-400 text-base md:text-lg leading-7"
             >
               Passionate Computer Science Engineering student specializing in
-              Python, SQL, Power BI, React, Firebase and Data Analytics.
+              Python, SQL, HTML, CSS, JavaScript, React(Learning), Power BI, Excel,Tableau, Data Visualization, Data Cleaning and Data Analytics.
               I enjoy building scalable web applications and solving
               real-world business problems through technology.
             </motion.p>

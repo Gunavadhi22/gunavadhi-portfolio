@@ -66,6 +66,7 @@ function Certifications() {
       description: "Professional Internship & Industry Certificates",
       icon: <FaBriefcase />,
       color: "from-indigo-500 to-violet-600",
+      glow: "rgba(124,58,237,0.55)",
       folder: "internships",
       files: internships,
     },
@@ -75,6 +76,7 @@ function Certifications() {
       description: "Online Courses & College Achievements",
       icon: <FaGraduationCap />,
       color: "from-violet-500 to-fuchsia-600",
+      glow: "rgba(168,85,247,0.55)",
       folder: "courses",
       files: courses,
     },
@@ -84,6 +86,7 @@ function Certifications() {
       description: "Hackathons, Awards & Recognitions",
       icon: <FaTrophy />,
       color: "from-fuchsia-500 to-pink-600",
+      glow: "rgba(217,70,239,0.55)",
       folder: "achievements",
       files: achievements,
     },
@@ -123,30 +126,62 @@ function Certifications() {
               viewport={{ once: true }}
               variants={fadeUp}
               custom={0.15 + index * 0.15}
-              whileHover={{ y: -5 }}
-              className="group cursor-pointer bg-white/5 border border-violet-500/20 rounded-2xl p-6 hover:border-violet-500/40 transition-all duration-500"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="group relative cursor-pointer rounded-2xl p-[1px] transition-all duration-500"
+              style={{
+                background: `linear-gradient(135deg, ${item.glow}, transparent 60%)`,
+              }}
             >
+              {/* Animated glow blob behind card */}
+              <motion.div
+                className="absolute -inset-4 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"
+                style={{ background: item.glow }}
+                animate={{ scale: [1, 1.08, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              />
+
               <div
-                className={`w-14 h-14 rounded-xl bg-gradient-to-r ${item.color} flex items-center justify-center text-white text-2xl shadow-lg group-hover:rotate-6 group-hover:scale-110 transition duration-500`}
+                className="relative bg-[#0d0d14] border border-violet-500/20 rounded-2xl p-6 h-full group-hover:border-violet-400/50 transition-all duration-500 overflow-hidden"
               >
-                {item.icon}
+
+                {/* Shimmer sweep on hover */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100"
+                  animate={{ x: ["-120%", "120%"] }}
+                  transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+                />
+
+                <motion.div
+                  className={`relative w-14 h-14 rounded-xl bg-gradient-to-r ${item.color} flex items-center justify-center text-white text-2xl shadow-lg group-hover:rotate-6 group-hover:scale-110 transition duration-500`}
+                  animate={{
+                    boxShadow: [
+                      `0 0 10px ${item.glow}`,
+                      `0 0 22px ${item.glow}`,
+                      `0 0 10px ${item.glow}`,
+                    ],
+                  }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  {item.icon}
+                </motion.div>
+
+                <h3 className="relative mt-5 text-lg font-bold text-white group-hover:text-violet-300 transition">
+                  {item.title}
+                </h3>
+
+                <p className="relative mt-2 text-slate-400 text-sm leading-6">
+                  {item.description}
+                </p>
+
+                <button
+                  onClick={() => setActiveCategory(item.key)}
+                  className="relative mt-6 w-full flex justify-center items-center gap-2 bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm py-2.5 rounded-xl font-semibold group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 group-hover:shadow-[0_0_18px_rgba(139,92,246,0.6)] transition-all duration-300"
+                >
+                  Explore
+                  <FaArrowRight size={13} />
+                </button>
+
               </div>
-
-              <h3 className="mt-5 text-lg font-bold text-white group-hover:text-violet-400 transition">
-                {item.title}
-              </h3>
-
-              <p className="mt-2 text-slate-400 text-sm leading-6">
-                {item.description}
-              </p>
-
-              <button
-                onClick={() => setActiveCategory(item.key)}
-                className="mt-6 w-full flex justify-center items-center gap-2 bg-violet-500/10 border border-violet-500/20 text-violet-300 text-sm py-2.5 rounded-xl font-semibold group-hover:bg-violet-600 group-hover:text-white group-hover:border-violet-600 transition-all duration-300"
-              >
-                Explore
-                <FaArrowRight size={13} />
-              </button>
             </motion.div>
           ))}
         </div>
@@ -169,7 +204,7 @@ function Certifications() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#0f0f16] border border-violet-500/30 rounded-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col"
+              className="bg-[#0f0f16] border border-violet-500/30 rounded-2xl w-full max-w-4xl max-h-[85vh] overflow-hidden flex flex-col shadow-[0_0_40px_rgba(139,92,246,0.3)]"
             >
               {/* Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b border-violet-500/20 shrink-0">
@@ -193,7 +228,7 @@ function Certifications() {
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.04 }}
-                      className="rounded-xl overflow-hidden border border-violet-500/20 bg-white flex items-center justify-center"
+                      className="rounded-xl overflow-hidden border border-violet-500/20 bg-white flex items-center justify-center hover:border-violet-400/60 hover:shadow-[0_0_18px_rgba(139,92,246,0.4)] transition-all duration-300"
                     >
                       <img
                         src={encodeURI(`/certificates/${activeData.folder}/${file}`)}
