@@ -1,91 +1,32 @@
 import { Link } from "react-scroll";
-import { FaDownload } from "react-icons/fa";
 
 function Navbar() {
-  const menu = [
-    "about",
-    "education",
-    "skills",
-    "experience",
-    "projects",
-    "certifications",
-    "contact",
-  ];
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-100">
+    <header className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-lg shadow-sm">
+      <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-3">
 
-      <nav className="max-w-7xl mx-auto h-16 flex items-center justify-between px-6 lg:px-10">
+        <h1 className="text-xl font-bold text-blue-600">GT</h1>
 
-        {/* Logo */}
-
-        <div className="flex items-center gap-3">
-
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-600 to-sky-500 flex items-center justify-center shadow">
-
-            <span className="text-white font-bold text-lg">
-              GT
-            </span>
-
-          </div>
-
-          <div>
-
-            <h1 className="text-lg font-bold text-slate-800 leading-none">
-              Gunavadhi
-            </h1>
-
-            <p className="text-xs text-slate-500 leading-none mt-1">
-              Data Analyst
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* Menu */}
-
-        <ul className="hidden lg:flex items-center gap-6">
-
-          {menu.map((item) => (
-
-            <li key={item}>
-
-              <Link
-                to={item}
-                smooth={true}
-                duration={500}
-                offset={-70}
-                spy={true}
-                activeClass="text-blue-600"
-                className="capitalize text-[15px] font-medium text-slate-600 cursor-pointer hover:text-blue-600 transition"
-              >
-                {item}
-              </Link>
-
-            </li>
-
-          ))}
-
+        <ul className="hidden md:flex items-center gap-6 text-sm text-slate-700 font-medium">
+          <li><Link to="about" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600 transition-colors">About</Link></li>
+          <li><Link to="education" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600 transition-colors">Education</Link></li>
+          <li><Link to="skills" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600 transition-colors">Skills</Link></li>
+          <li><Link to="experience" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600 transition-colors">Experience</Link></li>
+          <li><Link to="projects" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600 transition-colors">Projects</Link></li>
+          <li><Link to="certifications" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600 transition-colors">Certifications</Link></li>
+          <li><Link to="contact" smooth={true} duration={500} className="cursor-pointer hover:text-blue-600 transition-colors">Contact</Link></li>
         </ul>
 
-        {/* Resume */}
-
         <a
-          href="/Gunavadhi_Resume.pdf"
+          href="/RESUME/GUNAVADHI_RESUME.pdf"
           target="_blank"
           rel="noreferrer"
-          className="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-medium transition shadow"
+          className="bg-blue-600 text-white text-sm px-5 py-2 rounded-full hover:bg-blue-700 transition"
         >
-
-          <FaDownload size={13} />
-
           Resume
-
         </a>
 
       </nav>
-
     </header>
   );
 }
