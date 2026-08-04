@@ -156,37 +156,23 @@ function Hero() {
               {/* Glow */}
               <div className="absolute inset-0 rounded-full bg-violet-600 blur-3xl opacity-30"></div>
 
-              {/* Main Circle */}
+              {/* Main Circle - Profile Photo */}
 
-              <div className="relative w-[200px] h-[200px] md:w-[240px] md:h-[240px] rounded-full bg-gradient-to-br from-violet-600 via-purple-700 to-fuchsia-800 shadow-[0_15px_40px_rgba(139,92,246,0.35)] flex items-center justify-center overflow-hidden">
+              <div className="relative w-[280px] h-[280px] md:w-[340px] md:h-[340px] rounded-full overflow-hidden border-4 border-violet-500/40 shadow-[0_15px_40px_rgba(139,92,246,0.35)]">
+
+                <img
+                  src="/PROFILE/PROFILE.jpeg"
+                  alt="Gunavadhi Thiyagarajan"
+                  className="w-full h-full object-cover"
+                />
 
                 {/* Rotating Ring */}
 
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-2 rounded-full border border-dashed border-white/20"
+                  className="absolute inset-2 rounded-full border border-dashed border-white/30 pointer-events-none"
                 />
-
-                {/* Inner Ring */}
-
-                <div className="absolute inset-5 rounded-full border border-white/10"></div>
-
-                {/* GT */}
-
-                <motion.div
-                  animate={{ scale: [1, 1.03, 1] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="text-center"
-                >
-                  <h1 className="text-5xl md:text-6xl font-black tracking-wider text-white">
-                    GT
-                  </h1>
-
-                  <p className="mt-1 text-xs md:text-sm text-violet-200 font-medium">
-                    Data Analyst
-                  </p>
-                </motion.div>
 
               </div>
 
